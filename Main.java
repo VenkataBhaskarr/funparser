@@ -12,7 +12,7 @@ public class Main {
         String[] desired = sc.nextLine().split(",");
         String FILE_NAME = "Test.java";
         String finalCode = getFinalCode(FILE_NAME, desired);
-        //System.out.print(finalCode);
+        System.out.print(finalCode);
     }
 
     public static String getFinalCode(String FILE_NAME, String[] desired) throws FileNotFoundException {
@@ -110,6 +110,82 @@ public class Main {
                variables.add(cleanText(things[0]));
              } 
            }
+            if(cleanSub.startsWith("float")){
+             // two cases 
+             // one is int a = 20; / int a=20;
+             // other is int a = 20,b=10;
+             // break at comma
+               System.out.println(cleanSub);
+             String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "float")));
+             System.out.println(mod);
+             String[] vars = mod.split(",");
+             for(String var : vars){
+               String[] things = var.split("=");
+               variables.add(cleanText(things[0]));
+             } 
+           }
+            if(cleanSub.startsWith("String")){
+             // two cases 
+             // one is int a = 20; / int a=20;
+             // other is int a = 20,b=10;
+             // break at comma
+               System.out.println(cleanSub);
+             String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "String")));
+             System.out.println(mod);
+             String[] vars = mod.split(",");
+             for(String var : vars){
+               String[] things = var.split("=");
+               variables.add(cleanText(things[0]));
+             } 
+           }
+
+            if(cleanSub.startsWith("double")){
+             // two cases 
+             // one is int a = 20; / int a=20;
+             // other is int a = 20,b=10;
+             // break at comma
+               System.out.println(cleanSub);
+             String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "double")));
+             System.out.println(mod);
+             String[] vars = mod.split(",");
+             for(String var : vars){
+               String[] things = var.split("=");
+               variables.add(cleanText(things[0]));
+             } 
+           }
+
+            if(cleanSub.startsWith("boolean")){
+             // two cases 
+             // one is int a = 20; / int a=20;
+             // other is int a = 20,b=10;
+             // break at comma
+               System.out.println(cleanSub);
+             String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "boolean")));
+             System.out.println(mod);
+             String[] vars = mod.split(",");
+             for(String var : vars){
+               String[] things = var.split("=");
+               variables.add(cleanText(things[0]));
+             } 
+           }
+            
+            if(cleanSub.startsWith("char")){
+             // two cases 
+             // one is int a = 20; / int a=20;
+             // other is int a = 20,b=10;
+             // break at comma
+               System.out.println(cleanSub);
+             String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "char")));
+             System.out.println(mod);
+             String[] vars = mod.split(",");
+             for(String var : vars){
+               String[] things = var.split("=");
+               variables.add(cleanText(things[0]));
+             } 
+           }
+
+           // for datatype support add code here
+
         }
         return variables;
     }
