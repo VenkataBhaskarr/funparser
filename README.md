@@ -2,5 +2,5 @@
 
 This is built because this will be used for my upcoming projects :) Hence feel free to modify or suggest changes
 
-🚨 This parser is full of bugs because we are dealing with the string formatting  hence test well before you use this.
+🚨 This parser might contain bugs because the code is assumed as a string and everything at the end is based on string operations. Hence test well before you use this.
 
