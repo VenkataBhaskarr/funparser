@@ -10,16 +10,25 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the variable names of your choice: ");
         String[] desired = sc.nextLine().split(",");
-        String FILE_NAME = "Test.java";
+        // Ask the user for the file path
+        System.out.print("Enter your target file path : ");
+        String FILE_NAME = sc.nextLine();
         String finalCode = getFinalCode(FILE_NAME, desired);
-        System.out.print(finalCode);
+        // instead of printing this code write the hole code in the another file
+        try{
+          FileWriter writer = new FileWriter("modified" + FILE_NAME);
+          writer.write(finalCode);
+          writer.close();
+        }catch(IOException e){
+          System.out.print(e.getMessage());
+        } 
     }
 
     public static String getFinalCode(String FILE_NAME, String[] desired) throws FileNotFoundException {
         String original = getTextFromFile(FILE_NAME);
         // System.out.print(original);
         List<String> variables = extractVariableNames(original);
-        System.out.println(variables);
+       // System.out.println(variables);
         variables = cleanVariableNames(variables);
         Map<String, String> bindings = new HashMap<>();
         int iterator = 0;
@@ -101,9 +110,9 @@ public class Main {
              // one is int a = 20; / int a=20;
              // other is int a = 20,b=10;
              // break at comma
-               System.out.println(cleanSub);
+             //  System.out.println(cleanSub);
              String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "int")));
-             System.out.println(mod);
+             // System.out.println(mod);
              String[] vars = mod.split(",");
              for(String var : vars){
                String[] things = var.split("=");
@@ -115,9 +124,9 @@ public class Main {
              // one is int a = 20; / int a=20;
              // other is int a = 20,b=10;
              // break at comma
-               System.out.println(cleanSub);
+              // System.out.println(cleanSub);
              String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "float")));
-             System.out.println(mod);
+            // System.out.println(mod);
              String[] vars = mod.split(",");
              for(String var : vars){
                String[] things = var.split("=");
@@ -129,9 +138,9 @@ public class Main {
              // one is int a = 20; / int a=20;
              // other is int a = 20,b=10;
              // break at comma
-               System.out.println(cleanSub);
+            //   System.out.println(cleanSub);
              String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "String")));
-             System.out.println(mod);
+            //  System.out.println(mod);
              String[] vars = mod.split(",");
              for(String var : vars){
                String[] things = var.split("=");
@@ -144,9 +153,9 @@ public class Main {
              // one is int a = 20; / int a=20;
              // other is int a = 20,b=10;
              // break at comma
-               System.out.println(cleanSub);
+            //   System.out.println(cleanSub);
              String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "double")));
-             System.out.println(mod);
+             // System.out.println(mod);
              String[] vars = mod.split(",");
              for(String var : vars){
                String[] things = var.split("=");
@@ -159,9 +168,9 @@ public class Main {
              // one is int a = 20; / int a=20;
              // other is int a = 20,b=10;
              // break at comma
-               System.out.println(cleanSub);
+             //  System.out.println(cleanSub);
              String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "boolean")));
-             System.out.println(mod);
+             // System.out.println(mod);
              String[] vars = mod.split(",");
              for(String var : vars){
                String[] things = var.split("=");
@@ -174,9 +183,9 @@ public class Main {
              // one is int a = 20; / int a=20;
              // other is int a = 20,b=10;
              // break at comma
-               System.out.println(cleanSub);
+             //  System.out.println(cleanSub);
              String mod = cleanText(Objects.requireNonNull(splitString(cleanSub, "char")));
-             System.out.println(mod);
+             // System.out.println(mod);
              String[] vars = mod.split(",");
              for(String var : vars){
                String[] things = var.split("=");
